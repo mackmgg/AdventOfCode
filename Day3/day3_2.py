@@ -19,7 +19,7 @@ for instruction in instructions:
 		enabled = False
 	# Otherwise it's probably a multiply, if the multiplier is enabled then multiply!
 	elif enabled:
-		numbers = instruction[4:-1].split(',')
+		numbers = re.findall(r'mul\((\d{1,3}),(\d{1,3})\)', instruction)[0]
 		sum += int(numbers[0]) * int(numbers[1])
 
 print(sum)
